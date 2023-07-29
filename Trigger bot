@@ -1,0 +1,92 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.350
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.00699844491, 0, 0.458536625, 0)
+Frame.Size = UDim2.new(0, 222, 0, 83)
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BackgroundTransparency = 0.350
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0, 0, -0.516940653, 0)
+TextLabel.Size = UDim2.new(0, 221, 0, 40)
+TextLabel.Font = Enum.Font.Unknown
+TextLabel.Text = "Hackzin de cria"
+TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+TextLabel.TextSize = 21.000
+TextLabel.TextStrokeColor3 = Color3.fromRGB(255, 0, 0)
+
+TextLabel_2.Parent = Frame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.312575459, 0, -0.925103962, 0)
+TextLabel_2.Size = UDim2.new(0, 200, 0, 54)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "Feito por Isz Mdm#7663"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 0, 0)
+TextLabel_2.TextSize = 24.000
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundTransparency = 1.000
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(-0.00315788202, 0, 0.0794196054, 0)
+TextButton.Size = UDim2.new(0, 222, 0, 69)
+TextButton.Font = Enum.Font.Unknown
+TextButton.Text = "Desligado"
+TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+TextButton.TextSize = 41.000
+
+-- Scripts:
+
+local function WDGF_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	function YIHREB_fake_script() -- TextButton.LocalScript 
+		local script = Instance.new('LocalScript', TextButton)
+	
+		_G.triggerbot = false
+		local player = game:GetService("Players").LocalPlayer
+		local mouse = player:GetMouse()
+		script.Parent.MouseButton1Click:Connect(function()
+			if _G.triggerbot then
+				_G.triggerbot = false
+				script.Parent.TextColor3 = Color3.fromRGB(255,0,0)
+				script.Parent.Text = "Desligado"
+			else
+				_G.triggerbot = true
+				script.Parent.TextColor3 = Color3.fromRGB(85,255,0)
+				script.Parent.Text = "Ativado"
+				game:GetService("RunService").RenderStepped:Connect(function()
+					if mouse.Target.Parent:FindFirstChild("Humanoid") and _G.triggerbot and mouse.Target.Parent.Name ~= player.Name then
+						mouse1press() wait() mouse1release()
+					end
+				end)
+			end
+		end)
+	end
+	coroutine.wrap(YIHREB_fake_script)()
+end
+coroutine.wrap(WDGF_fake_script)()
